@@ -1,0 +1,86 @@
+body {
+		background-color: #7CC644;
+}
+
+#logBox {
+		background-color: #FFFFFF;
+		width: 500px;
+		padding: 50px;
+		margin: 50px;
+		position: relative;
+		left: 400px;
+		top: 110px;
+}
+
+.sign {
+		background-color: #FFFFFF;
+		padding: 3px;
+		margin: 2px;
+}	
+
+form {
+		
+		padding: 35px;
+		margin: 5px;
+}
+
+#sigu {
+		text-align: center;
+		
+}
+
+.textInput {
+		position: relative;
+		left: 35%;
+}
+
+.subBot {
+		position: relative;
+		left: 35%;
+		padding: 10px 12px;
+		margin: 5px;
+		width: 49px;
+}
+
+#butSub {
+	
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 8px 12px;
+		gap: 10px;
+
+		width: 185px;
+		height: 43px;
+		background-color: #D6D6D6;
+		border-radius: 15px;
+
+#turning {
+		width: 62px;
+		height: 27px;
+		
+		color: #000000 ;
+		font-family: 'Manrope';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 27px;
+	
+}
+
+#butsign {
+		background-color: red;
+		color: white;
+		border: 3px solid black;
+		padding: 3px;
+		margin: 2px;
+		border-radius: 10px;
+}
+
+.backImage {
+		width: 10000px;
+		height: 10000px;
+		background-image: url("image/fotologin.png");
+}
+
