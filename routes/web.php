@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sayuria_controller;
+use App\Http\Controllers\KeranjangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,4 +47,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/destroy/{id}/', [sayuria_controller::class, 'hapus_produk']);
     Route::get('admin/destroy/user/{id}/', [sayuria_controller::class, 'hapus_user']);
     Route::get('logout_admin',[sayuria_controller::class,'logout_admin'])->name('logout.admin');
+    
 });
+
+Route::get('keranjang', [KeranjangController::class, 'viewkeranjang'])->name('keranjang');
+Route::get('addToKeranjang/{id}', [KeranjangController::class, 'addToKeranjang'])->name('addToKeranjang');
+Route::patch('updateKeranjang', [KeranjangController::class, 'updateKeranjang'])->name('updateKeranjang');
+Route::delete('removeFromKeranjang', [ProductsController::class, 'removeFromKeranjang'])->name('removeFromKeranjang');
