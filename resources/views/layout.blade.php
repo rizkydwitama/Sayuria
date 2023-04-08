@@ -78,15 +78,17 @@
 				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy sticked"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
 
 				        <!-- Start Top Search -->
-				        <div class="top-search">
-				            <div class="container">
-				                <div class="input-group">
-				                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-				                    <input type="text" class="form-control" placeholder="Search">
-				                    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-				                </div>
-				            </div>
-				        </div>
+						<form action = "{{route('cari')}}">
+				        	<div class="top-search">
+				            	<div class="container">
+				                	<div class="input-group">
+				                    	<span class="input-group-addon"><i class="fa fa-search"></i></span>
+				                    	<input type="text" class="form-control" placeholder="Search">
+				                    	<span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+				                	</div>
+				            	</div>
+				        	</div>
+						</form>
 				        <!-- End Top Search -->
 
 				        <div class="container">            
