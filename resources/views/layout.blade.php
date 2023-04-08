@@ -93,19 +93,16 @@
 				            <!-- Start Atribute Navigation -->
 				            <div class="attr-nav">
 				                <ul>
-									
-				                	<li class="search">
+									<li class="search">
 				                		<a href="#"><span class="lnr lnr-magnifier"></span></a>
 				                	</li><!--/.search-->
-									
-									@if(session('keranjang'))
 				                    <li class="dropdown">
 										<a href="{{route('keranjang')}}" class="dropdown-toggle" data-toggle="dropdown" >
 											<span class="lnr lnr-cart"></span>
-											<span class="badge badge-bg-1"></span>
+											<span class="badge badge-bg-1">2</span>
 										</a>    
-										  
 				                        <ul class="dropdown-menu cart-list s-cate">
+											@if(session('keranjang'))
 											@foreach(session('keranjang') as $id=>$details) 
 				                            <li class="single-cart-list">
 				                                <a href="#" class="photo"><img src="asset/images/collection/{{$details['gambar']}}" class="cart-thumb" alt="image" /></a>
