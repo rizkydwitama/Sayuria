@@ -68,7 +68,7 @@
 				  				</p>
 							</div>
 						</div>
-						<h4><a href="#">{{$sayur->nama_sayur}}</a></h4>
+						<h4><a href="{{route('detail_produk', $sayur->id)}}">{{$sayur->nama_sayur}}</a></h4>
 							<p class="description">{{$sayur->deskripsi}}</p>
 			  				<p class="arrival-product-price">@currency($sayur->harga_sayur)</p>
 					</div>
