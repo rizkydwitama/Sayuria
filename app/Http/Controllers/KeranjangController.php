@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 use App\Models\sayurmodel;
 
@@ -11,7 +12,7 @@ class KeranjangController extends Controller
     {
         return view('keranjang');
     }
-
+    
     public function addToKeranjang($id)
     {
         $sayur = sayurmodel::findOrFail($id);

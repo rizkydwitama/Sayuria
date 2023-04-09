@@ -633,6 +633,9 @@ p.arrival-review span {margin-right: 15px;}
     margin-bottom: 25px;
 }
 
+.hm-foot-menu p{
+    color: #636a6f;
+}
 
 /*hm-foot-email*/
 
@@ -657,6 +660,59 @@ p.arrival-review span {margin-right: 15px;}
     transition: .3s;
 }
 .footer-social i:hover{color: #e99c2e;}
+
+/*-------------------------------------
+        6.  About us
+--------------------------------------*/
+.aboutus{
+    justify-content: center;
+    align-items: center;
+    margin: 67px 5%;
+}
+
+.aboutus h1 {
+    padding-top: 10%;
+    padding-left: 20%;
+    font-size: 48px;
+}
+
+.aboutus .container {
+    display: flex;
+}
+
+.aboutus .container .text {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 0.4%;
+}
+
+.aboutus .container .text p {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 4rem;
+}
+
+.aboutus .container .text .button {
+    margin: auto;
+    text-align: center;
+    padding: 1rem 3rem;
+    width: 25rem;
+    background-color: #7cc644;
+    border-radius: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.aboutus .container .text .button a {
+    font-size: 1.5rem;
+    color: #000000;
+    text-decoration: none;
+}
+
+.aboutus .container .text button:hover {
+    transform: scale(1.1);
+}
 
 /*===============================
     Scroll Top
@@ -706,4 +762,6 @@ p.arrival-review span {margin-right: 15px;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
-/*========================Thank you=================
+
+
+/*======================== Makasih =================

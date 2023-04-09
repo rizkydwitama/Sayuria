@@ -217,4 +217,9 @@ class sayuria_controller extends Controller
         $data=sayurmodel::all();
         return view('produk',compact('data'));
     }
+
+    public function viewTentangKami()
+    {
+        return view('tentang_kami');
+    }
 }

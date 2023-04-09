@@ -54,3 +54,5 @@ Route::get('keranjang', [KeranjangController::class, 'viewkeranjang'])->name('ke
 Route::get('addToKeranjang/{id}', [KeranjangController::class, 'addToKeranjang'])->name('addToKeranjang');
 Route::patch('updateKeranjang', [KeranjangController::class, 'updateKeranjang'])->name('updateKeranjang');
 Route::delete('removeFromKeranjang', [ProductsController::class, 'removeFromKeranjang'])->name('removeFromKeranjang');
+
+Route::get('tentangKami', [sayuria_controller::class, 'viewTentangKami'])->name('tentangKami');

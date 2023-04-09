@@ -169,8 +169,8 @@
 				                    <li class="{{ Request::is('produk')? 'active' : '' }}">
 										<a href="{{ route('produk') }}">produk</a>
 									</li>
-				                    <li >
-										<a href="#">tentang kami</a>
+				                    <li class="{{ Request::is('tentangKami')? 'active' : '' }}">
+										<a href="{{route('tentangKami')}}">tentang kami</a>
 									</li>
 				                </ul><!--/.nav -->
 				            </div><!-- /.navbar-collapse -->
@@ -215,7 +215,7 @@
 						<div class=" col-md-3 col-sm-6 col-xs-12">
 							<div class="hm-footer-widget">
 								<div class="hm-foot-title">
-									<a href="#">Tentang Kami</a>
+									<a href="{{route('tentangKami')}}">Tentang Kami</a>
 								</div><!--/.hm-foot-title-->
 								<div class="hm-foot-menu">
 								</div><!--/.hm-foot-menu-->
