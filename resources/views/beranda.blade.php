@@ -47,7 +47,7 @@
 <section id="sayur-populer" class="sayur-populer" >
 	<div class="container" >
 		<div class="section-header" >
-			<h2>Sayuran paling populer saat ini</h2>
+			<h2>List Sayur</h2>
 	  	</div><!--/.section-header-->
 	  	<div class="sayur-populer-content">
 			<div class="row">
