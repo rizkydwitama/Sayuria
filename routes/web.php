@@ -29,13 +29,19 @@ Route::get('produk',[sayuria_controller::class,'list_produk'])->name('produk');
 
 Route::get('detail_produk/{id}',[sayuria_controller::class,'detail_produk'])->name('detail_produk');
 
+Route::get('profile',[sayuria_controller::class,'viewProfile'])->name('profile');
+Route::post('updateProfile', [sayuria_controller::class, 'updateProfile'])->name('update.profile');
 
-route::get('test',function(){
-    $sayur=DB::table('sayur')->get();
-    return view('welcome',[
-        'sayur'=>$sayur
-    ]);
-});
+Route::get('keranjang', [KeranjangController::class, 'viewkeranjang'])->name('keranjang');
+Route::post('detail_produk/addToKeranjang', [KeranjangController::class, 'addToKeranjang'])->name('addToKeranjang');
+Route::post('updateKeranjang', [KeranjangController::class, 'updateKeranjang'])->name('updateKeranjang');
+Route::get('/removeFromKeranjang/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('removeFromKeranjang');
+Route::get('order-detail', [KeranjangController::class, 'viewOrder'])->name('order-detail');
+Route::post('orderplace', [KeranjangController::class, 'orderplace'])->name('orderplace');
+Route::get('pesanan-saya', [KeranjangController::class, 'pesanan_saya'])->name('pesanan-saya');
+Route::get('transfer', [KeranjangController::class, 'transfer'])->name('transfer');
+
+Route::get('tentangKami', [sayuria_controller::class, 'viewTentangKami'])->name('tentangKami');
 
 //admin
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -49,10 +55,3 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('logout_admin',[sayuria_controller::class,'logout_admin'])->name('logout.admin');
     
 });
-
-Route::get('keranjang', [KeranjangController::class, 'viewkeranjang'])->name('keranjang');
-Route::get('addToKeranjang/{id}', [KeranjangController::class, 'addToKeranjang'])->name('addToKeranjang');
-Route::patch('updateKeranjang', [KeranjangController::class, 'updateKeranjang'])->name('updateKeranjang');
-Route::delete('removeFromKeranjang', [ProductsController::class, 'removeFromKeranjang'])->name('removeFromKeranjang');
-
-Route::get('tentangKami', [sayuria_controller::class, 'viewTentangKami'])->name('tentangKami');

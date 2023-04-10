@@ -1,11 +1,14 @@
 <title> {{$data->nama_sayur}} | Sayuria </title>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 
 @extends('layout')
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!--welcome-hero start -->
-<header id="produk" class="welcome-hero">
-	<div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+<header id="produk" class="welcome-hero ">
+	<div id="header-carousel" class="carousel slide carousel-fade data_sayur" data-ride="carousel">
         <!--/.carousel-inner -->
 		<div class="carousel-inner" role="listbox">
 			<!-- .item -->
@@ -24,15 +27,22 @@
 								<div class="col-sm-7">
 									<div class="single-welcome-hero">
 										<div class="welcome-hero-txt">
+											
 											<h2>{{$data->nama_sayur}}</h2>
 											<h3>@currency($data->harga_sayur)</h3>
 											<p>
 												{{$data->deskripsi}}
 											</p>
-											<button type="button" id="krj">+ Tambahkan ke keranjang</button>
+											<form action="{{route('addToKeranjang')}}" method="POST">
+											@csrf
+											<input type="hidden" name="sayur_id" value="{{$data->id}}" class="sayur_id">
+											<p>Masukkan Jumlah Yang ingin Dibeli </p>
+											<input type="number" name="jumlah" class="quantity"><br><br>
+											<input type="submit" id="krj" value="+ Tambahkan ke keranjang">
 											<br>
 											<br>
 											<button type="button" id="ckt">+ Checkout</button>
+										</form>
 										</div><!--/.welcome-hero-txt-->
 									</div><!--/.single-welcome-hero-->
 								</div><!--/.col-->
@@ -46,3 +56,23 @@
 </header><!--/.welcome-hero-->
 <!--welcome-hero end -->
 @endsection
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			url: "{{ route('addToKeranjang') }}",
+			type: "POST",
+			data: {
+				sayur_id: sayur_id,
+				jumlah: jumlah,
+				"_token": "{{ csrf_token() }}"
+			},
+				success: function (response) {
+					alert(response.status);
+				},
+				error: function (xhr) {
+					alert(xhr.responseText);
+				}
+		});
+	});
+   
+</script>

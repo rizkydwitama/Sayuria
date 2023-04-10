@@ -6,10 +6,10 @@ use Validator;
 use App\Models\User;
 use App\Models\sayurmodel;
 use Illuminate\Support\Facades\Auth;    
+use Illuminate\Support\Facades\File;  
 use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Facades\Session; 
 use DataTables;
-use App\Http\Resources\DetailProductResource;
 
 class sayuria_controller extends Controller
 {
@@ -222,4 +222,53 @@ class sayuria_controller extends Controller
     {
         return view('tentang_kami');
     }
+
+    public function viewProfile(){
+        $user=Auth::user()->username;
+        return view('profile',compact('user'));
+    }
+
+    public function updateProfile(Request $request){
+        $validated = Validator::make($request->all(), [
+            'nama_depan' => ['required', 'string'],
+            'nama_belakang' => ['required', 'string'],
+            'username' => ['required', 'string'],
+            'alamat' => ['required', 'string'],
+        ]);
+        if (auth()->user()->profile == null) {
+             $validate_image = Validator::make($request->all(), [
+                'profile' => ['required', 'image', 'max:2048']
+            ]);
+            if ($validate_image->fails()) {
+                return response()->json(['code' => 400, 'msg' => $validate_image->errors()->first()]);
+            }
+        }
+        if ($validated->fails()) {
+            return response()->json(['code' => 400, 'msg' => $validated->errors()->first()]);
+        }
+        if ($request->hasFile('profile')) {
+            $imagePath = 'asset/'.auth()->user()->profile;
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $profile = $request->profile->store('profile_images', 'public');
+        }
+        auth()->user()->update([
+            'name' => $request->name,
+            'alamat' => $request->alamat,
+            'profile' => $profile ?? auth()->user()->profile 
+        ]);
+        return response()->json(['code' => 200, 'msg' => 'profile updated successfully.']);
+    }
+
+    public function transfer(){
+        return view('transfer');
+    }
+
+    public function pesanan_saya(){
+        $order=order::where('user_id',Auth::id())->get();
+        return view('');
+    }
+
+
 }

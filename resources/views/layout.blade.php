@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+	<?php
+	use App\Http\Controllers\KeranjangController;
+	$jumlah=KeranjangController::list_item();
+	?>
     <head>
         <!-- meta data -->
         <meta charset="utf-8">
@@ -83,7 +87,7 @@
 				            	<div class="container">
 				                	<div class="input-group">
 				                    	<span class="input-group-addon"><i class="fa fa-search"></i></span>
-				                    	<input type="text" class="form-control" placeholder="Search">
+				                    	<input type="text" class="form-control" placeholder="Search" name="produk">
 				                    	<span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
 				                	</div>
 				            	</div>
@@ -142,9 +146,19 @@
 									@endguest
 									
 									@auth
-									<li class="log">
-										<a class="log" href="{{route('logout')}}">Logout</a>
-									</li>
+									<li class="nav-item dropdown" id="div-nav">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black" >
+											@php($profile = auth()->user()->profile)
+											<img src="{{"storage/$profile"}}" alt="{{ auth()->user()->name }}" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+											{{ auth()->user()->username }}
+										</a>
+										<div class="dropdown-menu dropdown-menu-end ">
+											<ul style="color: black "  >
+												<li><a class="dropdown-item" href="{{route('profile')}}">profile</a></li>
+												<li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+											</ul>
+										</div>
+									  </li>
 									@endauth
 				                </ul>
 				            </div><!--/.attr-nav-->
@@ -252,6 +266,5 @@
 
 		</section><!--/newsletter-->	
 		<!--newsletter end -->
-			@yield('scripts')
     </body>
 </html>
