@@ -157,8 +157,8 @@
 				                    <li class="{{ Request::is('produk')? 'active' : '' }}">
 										<a href="{{ route('produk') }}">produk</a>
 									</li>
-				                    <li >
-										<a href="#">tentang kami</a>
+				                    <li li class="{{ Request::is('tentangKami')? 'active' : '' }}">
+										<a href="{{route('tentangKami')}}">tentang kami</a>
 									</li>
 				                </ul><!--/.nav -->
 				            </div><!-- /.navbar-collapse -->
