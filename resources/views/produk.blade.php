@@ -25,7 +25,7 @@
 									<div class="sayur-populer-cart">
 										<p>
 											<span class="lnr lnr-cart"></span>
-											<a href="{{route('addToKeranjang', $sayur->id)}}">add <span>to </span> cart</a>
+											<a href="{{route('detail_produk', $sayur->id)}}">add <span>to </span> cart</a>
 											
 										</p>
 										<p class="arrival-review pull-right">

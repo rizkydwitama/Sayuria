@@ -39,10 +39,7 @@
 											<p>Masukkan Jumlah Yang ingin Dibeli </p>
 											<input type="number" name="jumlah" class="quantity"><br><br>
 											<input type="submit" id="krj" value="+ Tambahkan ke keranjang">
-											<br>
-											<br>
-											<button type="button" id="ckt">+ Checkout</button>
-										</form>
+											</form>
 										</div><!--/.welcome-hero-txt-->
 									</div><!--/.single-welcome-hero-->
 								</div><!--/.col-->
