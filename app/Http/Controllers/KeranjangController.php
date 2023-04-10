@@ -57,7 +57,7 @@ class KeranjangController extends Controller
         }
     }
 
-    public function removeFromKeranjang(Request $request)
+    public function removeFromKeranjang($id)
     {
         Keranjang::destroy($id);
         return redirect('keranjang');
@@ -104,7 +104,25 @@ class KeranjangController extends Controller
         }else{
             return redirect('transfer');
         }
-        
-        
+    }
+
+    public function bayar(Request $request){
+        $user_id = Auth::id();
+        $file_name = $request->bukti->getClientOriginalName();
+        $image_path = $request->file('bukti')->storeAs('bukti', $file_name, 'public');
+        $form_data = array(
+            'bukti' => 'storage/' . $image_path
+        );
+        order::where('user_id', $user_id)->update($form_data);
+        return redirect('beranda');
+    }
+
+    public function transfer(){
+        return view('transfer');
+    }
+
+    public function pesanan_saya(){
+        $order=order::where('user_id',Auth::id())->get();
+        return view('pesanan-saya',['order'=> $order]);
     }
 }

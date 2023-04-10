@@ -103,37 +103,10 @@
 				                		<a href="#"><span class="lnr lnr-magnifier"></span></a>
 				                	</li><!--/.search-->
 				                    <li class="dropdown">
-										<a href="{{route('keranjang')}}" class="dropdown-toggle" data-toggle="dropdown" >
+										<a href="{{route('keranjang')}}" class="dropdown-toggle" >
 											<span class="lnr lnr-cart"></span>
-											<span class="badge badge-bg-1">2</span>
+											<span class="badge badge-bg-1">{{$jumlah}}</span>
 										</a>    
-				                        <ul class="dropdown-menu cart-list s-cate">
-											@if(session('keranjang'))
-											@foreach(session('keranjang') as $id=>$details) 
-				                            <li class="single-cart-list">
-				                                <a href="#" class="photo"><img src="asset/images/collection/{{$details['gambar']}}" class="cart-thumb" alt="image" /></a>
-				                                <div class="cart-list-txt">
-				                                	<h6><a href="#">{{$details['nama_sayur']}}</a></h6>
-				                                	<p>{{$details['quantity']}} x - <span class="price">Rp{{$details['harga_sayur']}}</span></p>
-				                                </div><!--/.cart-list-txt-->
-				                                <div class="cart-close" href = "{{route('removeFromKeranjang')}}">
-				                                	<span class="lnr lnr-cross"></span>
-				                                </div><!--/.cart-close-->
-				                            </li><!--/.single-cart-list -->
-                                                @endforeach
-                                            @endif
-                                            @php $total = 0 @endphp
-                                            @foreach((array) session('keranjang') as $id => $details)
-                                                @php $total += $details['harga_sayur'] * $details['quantity'] @endphp
-                                            @endforeach
-											
-				                            <li class="total">
-				                                <span>Total: Rp{{$total}}</span>
-				                                <button class="btn-cart pull-right" onclick="window.location.href='{{route('keranjang')}}'">view cart</button>
-				                            </li>
-
-											
-				                        </ul>
 				                    </li><!--/.dropdown-->
 
 									@guest
@@ -155,6 +128,7 @@
 										<div class="dropdown-menu dropdown-menu-end ">
 											<ul style="color: black "  >
 												<li><a class="dropdown-item" href="{{route('profile')}}">profile</a></li>
+												<li><a class="dropdown-item" href="{{route('pesanan-saya')}}">Pesanan Saya</a></li>
 												<li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
 											</ul>
 										</div>
@@ -183,8 +157,8 @@
 				                    <li class="{{ Request::is('produk')? 'active' : '' }}">
 										<a href="{{ route('produk') }}">produk</a>
 									</li>
-				                    <li class="{{ Request::is('tentangKami')? 'active' : '' }}">
-										<a href="{{route('tentangKami')}}">tentang kami</a>
+				                    <li >
+										<a href="#">tentang kami</a>
 									</li>
 				                </ul><!--/.nav -->
 				            </div><!-- /.navbar-collapse -->
@@ -229,7 +203,7 @@
 						<div class=" col-md-3 col-sm-6 col-xs-12">
 							<div class="hm-footer-widget">
 								<div class="hm-foot-title">
-									<a href="{{route('tentangKami')}}">Tentang Kami</a>
+									<a href="#">Tentang Kami</a>
 								</div><!--/.hm-foot-title-->
 								<div class="hm-foot-menu">
 								</div><!--/.hm-foot-menu-->
@@ -266,5 +240,6 @@
 
 		</section><!--/newsletter-->	
 		<!--newsletter end -->
+			@yield('scripts')
     </body>
 </html>

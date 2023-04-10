@@ -38,6 +38,7 @@ Route::post('updateKeranjang', [KeranjangController::class, 'updateKeranjang'])-
 Route::get('/removeFromKeranjang/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('removeFromKeranjang');
 Route::get('order-detail', [KeranjangController::class, 'viewOrder'])->name('order-detail');
 Route::post('orderplace', [KeranjangController::class, 'orderplace'])->name('orderplace');
+Route::post('bayar', [KeranjangController::class, 'bayar'])->name('bayar');
 Route::get('pesanan-saya', [KeranjangController::class, 'pesanan_saya'])->name('pesanan-saya');
 Route::get('transfer', [KeranjangController::class, 'transfer'])->name('transfer');
 
