@@ -14,9 +14,4 @@ class ProductController extends Controller
         return response()->json($sayur, 200);
     }
 
-    public function detailProduct($id)
-    {
-        $sayur = sayurmodel::find($id);
-        return response()->json($sayur, 200);
-    }
 }
